@@ -1,7 +1,10 @@
-/* font-family: 'Cabin Sketch', cursive;
+/* 
+font-family: 'Cabin Sketch', cursive;
 font-family: 'Press Start 2P', cursive;
 font-family: 'Quantico', sans-serif;
-font-family: 'Sirin Stencil', cursive; */
+font-family: 'Sirin Stencil', cursive; 
+font-family: 'Righteous', cursive; 
+*/
 
 
 * {
@@ -30,7 +33,6 @@ nav a, nav ul a{
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 nav a {
@@ -81,7 +83,7 @@ img {
   left:0; top:0;
   width:100%; height:100%;
   display:inline-block;
-  background: -webkit-linear-gradient(.5turn, var(--side-bg-color),rgba(255, 255, 255, 0.1) 50%, var(--side-bg-color));
+  background: -webkit-linear-gradient(.5turn, var(--side-bg-color),rgba(255, 255, 255, 0.25) 50%, var(--side-bg-color));
 }
 
 h4 {

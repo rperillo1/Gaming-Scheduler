@@ -26,6 +26,10 @@ const pollSchema = new Schema(
         },
         voteNo: {
             type: Array
+        },
+        status: {
+            type: String,
+            enum: ['pending', 'completed', 'finished']
         }
     }, {
     timestamps: true

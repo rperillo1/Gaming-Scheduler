@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Scheduler</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Press+Start+2P&family=Quantico&family=Sirin+Stencil&display=swap"
-        rel="stylesheet">
-    <!-- Materialize CSS Framework -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <!-- JavaScript for Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
-
-<body>
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="" class="left"><i class="material-icons">library_books</i>Game Time</a>
-                <ul class="right">
-                    <li>
-                        <% if (user) { %>
-                        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-                        <% } else { %>
-                        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-                        <% } %>
-                    </li>
-                </ul>
-        </nav>
-    </div>
+<%- include('../partials/header') %>
 
     <div class="flex-container">
         <h4>Schedule your next gaming session with friends!</h3>
