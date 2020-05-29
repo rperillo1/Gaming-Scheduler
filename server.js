@@ -15,7 +15,6 @@ var homeRouter = require('./routes/home');
 
 var app = express();
 
-
 require('./config/database');
 require('./config/passport');
 

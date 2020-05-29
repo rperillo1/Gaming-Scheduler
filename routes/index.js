@@ -15,7 +15,7 @@ router.get('/auth/google',
 
 router.get('/oauth2callback',
   passport.authenticate('google', {
-    successRedirect: '/friendGroups',
+    successRedirect: '/home',
     failureRedirect: '/home'
   })
 );

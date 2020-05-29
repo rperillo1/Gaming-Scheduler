@@ -1,8 +1,91 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* font-family: 'Cabin Sketch', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Quantico', sans-serif;
+font-family: 'Sirin Stencil', cursive; */
+
+
+* {
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+:root {
+  --side-bg-color: #ababab;
+}
+
+body {
+  background-image: linear-gradient(0.25turn, var(--side-bg-color), white 50%, var(--side-bg-color));
+  color: rgb(65, 52, 52);
+  font-family: 'Cabin Sketch', cursive;
+}
+
+
+nav {
+  background-color: rgb(167, 156, 156);
+  font-family: 'Righteous', cursive;
+  font-size: 3.75vmin;
+}
+
+nav a, nav ul a{
+  color: rgb(65, 52, 52);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+nav a {
+  padding-left: 20px;
+}
+
+nav a i {
+  padding-right: 10px;
+}
+
+.flex-container a {
+  border: 1px solid #968A8A;
+  padding: 5px;
+  border-radius: 10px;
+  color: #968A8A;
+  font-family: 'Righteous', cursive;
+  box-shadow: 3px 3px #c9b5b5;
+}
+
+.flex-container a:hover {
+  background-color: #968A8A;
+  color: white;
+  box-shadow: 0.2px 0.2px #c9b5b5;
+}
+
+.flex-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.image-container {
+  max-width: 100%; 
+  margin: auto;
+  position:relative;
+  margin-top: 10vmin;
+}
+
+.image-container::after {
+  content:'';
+  position:absolute;
+  left:0; top:0;
+  width:100%; height:100%;
+  display:inline-block;
+  background: -webkit-linear-gradient(.5turn, var(--side-bg-color),rgba(255, 255, 255, 0.1) 50%, var(--side-bg-color));
+}
+
+h4 {
+  font-size: 6vmin;
+  padding-top: 7vmin;
+  text-shadow: 2px 2px #c9b5b5;
 }
