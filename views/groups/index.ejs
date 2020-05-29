@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<div class="flex-container">
+    <h4>Friends Groups!</h3>
+</div>
+<div class="flex-container">
+    <form action="/groups" method="POST">
+        <label for="name">Create New Group:</label>
+        <input type="text" name="name" placeholder="Name of Group">
+    </form>
+</div>
+<div class='flex-container'>
+    <h6>Groups below:</h6>
+</div>
+<div class='flex-container'>
+    <ul>
+        <% groups.forEach(group => { %>
+        <li><%=group.name%></li>
+        <!-- <form action="/groups" method="POST">
+            <label for="">Add Members (by email):</label>
+            <input type="text" name="members">
+        </form> -->
+        <% }) %>
+    </ul>
+</div>
+
+</body>
+
+</html>

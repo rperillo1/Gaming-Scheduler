@@ -2,19 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const gameSchema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-            unique: true
-        },
-        polls: [pollSchema]
-    }, {
-    timestamps: true
-})
-
-
 const pollSchema = new Schema(
     {
         gameDate: {
@@ -36,12 +23,24 @@ const pollSchema = new Schema(
 })
 
 
-const friendGroupSchema = new Schema(
+const gameSchema = new Schema(
     {
         name: {
             type: String,
             required: true,
-            unique: true
+        },
+        polls: [pollSchema]
+    }, {
+    timestamps: true
+})
+
+
+const friendGroupSchema = new Schema(
+    {
+        name: {
+            type: String,
+            required: true
+            // unique: true
         },
         members: [{
             type: Schema.Types.ObjectId,
@@ -51,6 +50,7 @@ const friendGroupSchema = new Schema(
     }, {
     timestamps: true
 });
+
 
 
 module.exports = mongoose.model('FriendGroup', friendGroupSchema)
