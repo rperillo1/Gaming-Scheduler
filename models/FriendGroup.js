@@ -6,7 +6,7 @@ const pollSchema = new Schema(
     {
         gameDate: {
             type: Date,
-            // required: true
+            required: true
         },
         voteYes: {
             type: Array
@@ -27,7 +27,7 @@ const gameSchema = new Schema(
     {
         gameName: {
             type: String,
-            // required: true,
+            required: true,
         },
         polls: [pollSchema]
     }, {
@@ -39,13 +39,14 @@ const friendGroupSchema = new Schema(
     {
         name: {
             type: String,
-            // required: true
-            // unique: true
+            required: true,
+            unique: true
         },
         members: [{
             type: Schema.Types.ObjectId,
             ref: 'User'
-        }]
+        }],
+        games: [gameSchema]
     }, {
     timestamps: true
 });

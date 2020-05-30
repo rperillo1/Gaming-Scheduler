@@ -91,3 +91,47 @@ h4 {
   padding-top: 7vmin;
   text-shadow: 2px 2px #c9b5b5;
 }
+
+
+select {
+  display: inline-block;
+  height: 7vmin;
+  width: 80%;
+}
+
+form {
+  margin-bottom: 4vmin;
+}
+
+input[type=text]:not(.browser-default) {
+  width: 50%;
+  font-size: 12px;
+  height: 1.5rem;
+  margin-right: 6px;
+}
+
+
+.btn {
+  font-size: 10px;
+  height: 2vmin;
+  padding: 5px;
+  line-height: 0;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  select {
+    display: inline-block;
+    height: 4vmin;
+    width: 80%;
+    align-items: left;
+  }
+
+  input[type=text]:not(.browser-default) {
+    width: 60%;
+    font-size: 12px;
+    height: 1.5rem;
+    margin-right: 6px;
+  }
+}

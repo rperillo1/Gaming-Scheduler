@@ -7,6 +7,7 @@
     <form action="/groups" method="POST">
         <label for="name">Create New Group:</label>
         <input type="text" name="name" placeholder="Name of Group">
+        <button class='btn' type="submit">Submit</button>
     </form>
 </div>
 <div class='flex-container'>
@@ -15,11 +16,18 @@
 <div class='flex-container'>
     <ul>
         <% groups.forEach(group => { %>
-        <li><%=group.name%></li>
-        <!-- <form action="/groups" method="POST">
+        <li><a href="/<%=group.name%>/games"><%=group.name%></a></li>
+            <select name="members" id="">
+                <%- group.members.map(member => 
+                    `<option value=''>${member.name}</option>`).join('') %>
+            </select>
+
+        <form action="/groups/addMember" method="POST">
             <label for="">Add Members (by email):</label>
-            <input type="text" name="members">
-        </form> -->
+            <br>
+            <input type="hidden" name="name" value="<%=group.name%>">
+            <input type="email" name="email" placeholder="john.smith@gmail.com"><button class='btn'type="submit" required>Add</button>
+        </form>
         <% }) %>
     </ul>
 </div>
