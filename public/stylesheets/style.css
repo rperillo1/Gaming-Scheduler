@@ -142,6 +142,28 @@ input[type=datetime-local]:not(.browser-default){
   font-size: 12px;
 }
 
+.card .card-action {
+  /* display: block; */
+  padding: 10px;
+}
+
+
+#poll-container {
+  display: block;
+  margin: 0px 70px;
+}
+
+#delete-btn {
+  float: right;
+}
+
+#vote-form {
+  margin: 0px 15px;
+}
+
+.vote-button {
+  padding: 10px;
+}
 
 @media only screen and (min-width: 768px) {
   select {
@@ -161,5 +183,12 @@ input[type=datetime-local]:not(.browser-default){
   .delete-btn {
     background-color: rgb(213, 100, 100);
     margin-bottom: 4vmin;
+  }
+
+  #poll-container {
+    display: flex;
+  }
+  .cards {
+    margin: 10px;
   }
 }

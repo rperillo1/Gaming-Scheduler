@@ -43,10 +43,10 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/', gamesRouter);
-app.use('/', pollsRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/groups', groupsRouter);
+app.use('/polls', pollsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

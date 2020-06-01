@@ -9,7 +9,7 @@
 </div>
 
 <div class="flex-container">
-    <form action="/<%=group.name%>/<%=gameName%>" method="POST">
+    <form action="/polls/<%=group.name%>/<%=gameName%>" method="POST">
         <label for="gameDate">Date & Time:</label>
         <input id="poll-input" type="datetime-local" name="gameDate" value="">
         <br>
@@ -19,6 +19,39 @@
 <br>
 <div class='flex-container'>
     <h6>Pending Polls:</h6>
+</div>
+<div class='flex-container' id='poll-container'>
+    <% polls.forEach((poll, idx) => { %>
+    <div class="cards">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <form action="/polls/<%=group.name%>/<%=gameName%>?_method=DELETE" method="POST">
+                    <input type="hidden" name="id" value='<%=poll._id%>'>
+                    <button class='btn delete-btn' id='delete-btn'type="submit">X</button>
+                </form>
+                <div class="card-content white-text">
+                    <span class="card-title">Option #<span><%=idx + 1%></span></span>
+                    <p><%=poll.gameDate%></p>
+                </div>
+                
+                <div class="card-action">
+                    <div class='flex-container'>
+                        <form action="/polls/<%=group.name%>/<%=gameName%>/vote" method="POST" id='vote-form'>
+                            <input type="hidden" name="id" value='<%=poll._id%>'>
+                            <input type="hidden" name="vote" value="voteYes">
+                            <button class="btn vote-button" type='submit'>Yes</button>
+                        </form>
+                        <form action="/polls/<%=group.name%>/<%=gameName%>/vote" method="POST">
+                            <input type="hidden" name="id" value='<%=poll._id%>'>
+                            <input type="hidden" name="vote" value="voteNo">
+                            <button class="btn vote-button" type='submit'>No</button>
+                        </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }) %>
 </div>
 
 <div class='flex-container'>

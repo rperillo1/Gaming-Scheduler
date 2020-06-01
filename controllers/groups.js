@@ -33,7 +33,7 @@ function createGroup(req, res) {
 }
 
 
-function addMember(req, res, next) {
+function addMember(req, res) {
     let idx;
     FriendGroup.find({ members: req.user }, function (err, groups) {
         User.find({ email: req.body.email }, function (err, user) {
