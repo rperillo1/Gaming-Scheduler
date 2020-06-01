@@ -45,11 +45,11 @@ nav a i {
 
 .flex-container a {
   border: 1px solid #968A8A;
-  padding: 5px;
+  padding: 4px;
   border-radius: 10px;
   color: #968A8A;
   font-family: 'Righteous', cursive;
-  box-shadow: 3px 3px #c9b5b5;
+  box-shadow: 2.5px 2.5px #c9b5b5;
 }
 
 .flex-container a:hover {
@@ -88,7 +88,7 @@ img {
 
 h4 {
   font-size: 6vmin;
-  padding-top: 7vmin;
+  padding-top: 3.5vmin;
   text-shadow: 2px 2px #c9b5b5;
 }
 
@@ -99,12 +99,9 @@ select {
   width: 80%;
 }
 
-form {
-  margin-bottom: 4vmin;
-}
 
-input[type=text]:not(.browser-default) {
-  width: 50%;
+input[type=email]:not(.browser-default) {
+  width: 60%;
   font-size: 12px;
   height: 1.5rem;
   margin-right: 6px;
@@ -118,6 +115,32 @@ input[type=text]:not(.browser-default) {
   line-height: 0;
 }
 
+#back-btn {
+  margin-top: 2vmin;
+}
+
+#game-btn {
+  margin-bottom: 12px;
+}
+
+#grp-btn {
+  margin-bottom: 9px;
+}
+
+.delete-btn {
+  background-color: rgb(213, 100, 100);
+  margin-bottom: 4vmin;
+  padding: 7px;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+input[type=datetime-local]:not(.browser-default){
+  width: 68%;
+  font-size: 12px;
+}
 
 
 @media only screen and (min-width: 768px) {
@@ -133,5 +156,10 @@ input[type=text]:not(.browser-default) {
     font-size: 12px;
     height: 1.5rem;
     margin-right: 6px;
+  }
+
+  .delete-btn {
+    background-color: rgb(213, 100, 100);
+    margin-bottom: 4vmin;
   }
 }

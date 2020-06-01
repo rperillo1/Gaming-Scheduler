@@ -1,5 +1,9 @@
 <%- include('../partials/header') %>
 
+<div class='flex-container' id='back-btn'>
+    <a href="/groups">Back to Groups</a>
+</div>
+
 <div class="flex-container">
     <h4><%=group.name%>'s Games!</h3>
 </div>
@@ -17,7 +21,7 @@
 <div class='flex-container'>
     <ul>
         <% games.forEach(game => { %>
-            <li><%=game.gameName%></li>
+            <li id='game-btn'><a href="/<%=group.name%>/<%=game.gameName%>"><%=game.gameName%></a></li>
         <% }) %>
     </ul>
 </div>

@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+
+<div class='flex-container' id='back-btn'>
+    <a href="/<%=group.name%>/games">Back to Games</a>
+</div>
+
+<div class='flex-container'>
+    <h4><%=gameName%></h4>
+</div>
+
+<div class="flex-container">
+    <form action="/<%=group.name%>/<%=gameName%>" method="POST">
+        <label for="gameDate">Date & Time:</label>
+        <input id="poll-input" type="datetime-local" name="gameDate" value="">
+        <br>
+        <button class='btn' type="submit">Submit</button>
+    </form>
+</div>
+<br>
+<div class='flex-container'>
+    <h6>Pending Polls:</h6>
+</div>
+
+<div class='flex-container'>
+    <h6>Completed Polls:</h6>
+</div>
+
+<div class='flex-container'>
+    <h6>Finished Polls:</h6>
+</div>
+
+</body>
+
+</html>

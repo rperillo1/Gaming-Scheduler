@@ -5,7 +5,8 @@ const FriendGroup = require('../models/friendgroup')
 module.exports = {
     index,
     createGroup,
-    addMember
+    addMember,
+    delete: deleteGroup
 };
 
 function index(req, res) {
@@ -15,9 +16,9 @@ function index(req, res) {
                 user: req.user,
                 users: users,
                 groups
-            })
-        })
-    })
+            });
+        });
+    });
 }
 
 function createGroup(req, res) {
@@ -27,22 +28,46 @@ function createGroup(req, res) {
         newGroup.save(function (err) {
             if (err) return console.log(err);
             res.redirect('/groups');
-        })
-    })
+        });
+    });
 }
 
 
 function addMember(req, res, next) {
+    let idx;
+    FriendGroup.find({ members: req.user }, function (err, groups) {
+        User.find({ email: req.body.email }, function (err, user) {
+            if (user[0] === undefined) {
+                console.log('send email to user')
+            }
+            groups.forEach(group => {
+                if (group.name === req.body.name) {
+                    group.members.forEach(member => {
+                        if (member.equals(user[0]._id)) {
+                            idx = group.members.indexOf(member)
+                            group.members.splice(idx, 1)
+                        }
+                    })
+                    group.members.push(user[0]._id)
+                    group.save(function (err) {
+                        res.redirect('/groups');
+                    });
+                };
+            });
+        });
+    });
+}
+
+function deleteGroup(req, res) {
     FriendGroup.find({ members: req.user }, function (err, groups) {
         User.find({ email: req.body.email }, function (err, user) {
             groups.forEach(group => {
                 if (group.name === req.body.name) {
-                    group.members.push(user[0]._id)
-                    group.save(function (err) {
-                        res.redirect('/groups');
+                    FriendGroup.findByIdAndRemove(group._id, function(err, group) {
+                        res.redirect('/groups')
                     })
                 }
             })
-        })
-    })
+        });
+    });
 }

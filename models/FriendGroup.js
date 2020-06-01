@@ -30,7 +30,7 @@ const gameSchema = new Schema(
             required: true,
         },
         polls: [pollSchema]
-    }, {
+    }, { 
     timestamps: true
 })
 

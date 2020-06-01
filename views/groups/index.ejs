@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="flex-container">
-    <h4>Friends Groups!</h3>
+    <h4>Friend Groups!</h3>
 </div>
 <div class="flex-container">
     <form action="/groups" method="POST">
@@ -11,13 +11,14 @@
     </form>
 </div>
 <div class='flex-container'>
-    <h6>Groups below:</h6>
+    <h6>Your Groups:</h6>
 </div>
 <div class='flex-container'>
     <ul>
         <% groups.forEach(group => { %>
-        <li><a href="/<%=group.name%>/games"><%=group.name%></a></li>
+        <li id='grp-btn'><a href="/<%=group.name%>/games"><%=group.name%></a></li>
             <select name="members" id="">
+                    <option value="group members">group members:</option>
                 <%- group.members.map(member => 
                     `<option value=''>${member.name}</option>`).join('') %>
             </select>
@@ -26,8 +27,14 @@
             <label for="">Add Members (by email):</label>
             <br>
             <input type="hidden" name="name" value="<%=group.name%>">
-            <input type="email" name="email" placeholder="john.smith@gmail.com"><button class='btn'type="submit" required>Add</button>
+            <input type="email" name="email" placeholder="j.smith@gmail.com"><button class='btn'type="submit" required>Add</button>
         </form>
+        
+        <form action="/groups?_method=DELETE" method="POST">
+            <input type="hidden" name="name" value="<%=group.name%>">
+            <button class='btn delete-btn' type="submit">Delete Group</button>
+        </form>
+
         <% }) %>
     </ul>
 </div>

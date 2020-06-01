@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/home');
 var groupsRouter = require('./routes/groups');
 var gamesRouter = require('./routes/games');
+var pollsRouter = require('./routes/polls');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/', gamesRouter);
+app.use('/', pollsRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/groups', groupsRouter);

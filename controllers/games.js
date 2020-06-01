@@ -13,8 +13,8 @@ function index(req, res) {
             user: req.user,
             group: group[0],
             games: group[0].games
-        })
-    })
+        });
+    });
 }
 
 function createGame(req, res) {
@@ -23,6 +23,6 @@ function createGame(req, res) {
         group[0].games.push(req.body);
         group[0].save(function(err){
             res.redirect(`/${group[0].name}/games`)
-        })
-    })
+        });
+    });
 }

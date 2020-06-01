@@ -5,5 +5,6 @@ var groupsCtrl = require('../controllers/groups');
 router.get('/', groupsCtrl.index);
 router.post('/', groupsCtrl.createGroup);
 router.post('/addMember', groupsCtrl.addMember);
+router.delete('/', groupsCtrl.delete);
 
 module.exports = router;
