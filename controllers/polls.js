@@ -10,18 +10,32 @@ module.exports = {
 };
 
 function index(req, res) {
-    let polls;
+    let pendingPolls = [];
+    let completedPolls = [];
+    let finishedPolls = [];
     FriendGroup.find({ name: req.params.group }, function (err, group) {
         group[0].games.forEach(game => {
             if (game.gameName === req.params.gameName) {
-                polls = game.polls
+                game.polls.forEach(poll => {
+                    if (poll.status === 'pending') {
+                        pendingPolls.push(poll);
+                    }
+                    else if (poll.status === 'completed') {
+                        completedPolls.push(poll)
+                    }
+                    else if (poll.status === 'finished') {
+                        finishedPolls.push(poll)
+                    }
+                })
             }
         });
         res.render(`polls/index`, {
             user: req.user,
             group: group[0],
             gameName: req.params.gameName,
-            polls: polls
+            pendingPolls: pendingPolls,
+            completedPolls: completedPolls,
+            finishedPolls: finishedPolls
         });
     });
 }
@@ -93,8 +107,16 @@ function vote(req, res) {
                             }
                         }
                     }
+                    if ((poll.voteYes.length + poll.voteNo.length) === group[0].members.length) {
+                        if (poll.voteYes.length > poll.voteNo.length) {
+                            poll.status = 'completed'
+                        } else if (poll.voteNo.length > poll.voteYes.length) {
+                            poll.status = 'finished'
+                        } else {
+                            poll.status = 'pending'
+                        }
+                    }
                     console.log(poll)
-                    // handleVotes(poll.voteYes, poll.voteNo, group.members, poll)
                 })
             }
             group[0].save(function (err) {
@@ -103,16 +125,3 @@ function vote(req, res) {
         });
     })
 }
-
-// function handleVotes(voteYes, voteNo, members, poll) {
-//     if (voteYes.length + voteNo.length === members.length) {
-//         poll.status = 'completed'
-//         if (voteYes.length > voteNo.length) {
-//             //card text turn green
-//             console.log('turn the card green')
-//         } else {
-//             //card text turn red
-//             console.log('turn the card red')
-//         }
-//     }
-// }
