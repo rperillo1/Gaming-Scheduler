@@ -107,6 +107,10 @@ input[type=email]:not(.browser-default) {
   margin-right: 6px;
 }
 
+input[type=text]:not(.browser-default) {
+  height: 1.5rem;
+}
+
 
 .btn {
   font-size: 10px;
@@ -147,8 +151,12 @@ input[type=datetime-local]:not(.browser-default){
   padding: 10px;
 }
 
+.card .card-content {
+  padding: 10px;
+} 
 
-#poll-container {
+
+#poll-container, #game-container {
   display: block;
   margin: 0px 70px;
 }
@@ -182,20 +190,22 @@ input[type=datetime-local]:not(.browser-default){
   }
 
   input[type=text]:not(.browser-default) {
-    width: 60%;
+    width: 50%;
     font-size: 12px;
     height: 1.5rem;
     margin-right: 6px;
   }
+
 
   .delete-btn {
     background-color: rgb(213, 100, 100);
     margin-bottom: 4vmin;
   }
 
-  #poll-container {
+  #poll-container, #game-container {
     display: flex;
   }
+
   .cards {
     margin: 10px;
   }

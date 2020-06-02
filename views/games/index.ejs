@@ -18,10 +18,28 @@
 <div class='flex-container'>
     <h6>Games below:</h6>
 </div>
-<div class='flex-container'>
+<div class='flex-container' id="game-container">
     <ul>
         <% games.forEach(game => { %>
-            <li id='game-btn'><a href="/polls/<%=group.name%>/<%=game.gameName%>"><%=game.gameName%></a></li>
+            <li id='game-btn'>
+                <div class="cards">
+                    <div class="col s12 m6">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Enter: <a href="/polls/<%=group.name%>/<%=game.gameName%>"><%=game.gameName%></a></span>
+                        </div>
+                        <div class="card-action">
+                            <form action="/<%=group.name%>/games?_method=PUT" method="POST">
+                                <input type="hidden" name="currentName" value="<%=game.gameName%>">
+                                <label for="gameName">Update Name: </label>
+                                <input type="text" name="gameName">
+                                <button class='btn' type="submit">Submit</button>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </li>
         <% }) %>
     </ul>
 </div>

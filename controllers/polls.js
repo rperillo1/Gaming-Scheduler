@@ -17,14 +17,17 @@ function index(req, res) {
         group[0].games.forEach(game => {
             if (game.gameName === req.params.gameName) {
                 game.polls.forEach(poll => {
+                    // if (poll.gameDate < new Date()) {
+                    //     return;
+                    // }
                     if (poll.status === 'pending') {
                         pendingPolls.push(poll);
                     }
                     else if (poll.status === 'completed') {
-                        completedPolls.push(poll)
+                        completedPolls.push(poll);
                     }
                     else if (poll.status === 'finished') {
-                        finishedPolls.push(poll)
+                        finishedPolls.push(poll);
                     }
                 })
             }
@@ -45,12 +48,18 @@ function addPoll(req, res) {
     FriendGroup.find({ name: req.params.group }, function (err, group) {
         group[0].games.forEach(game => {
             if (game.gameName === req.params.gameName) {
+                console.log(req.body.gameDate)
+                console.log(new Date())
+                if (req.body.gameDate < new Date()) {
+                    console.log('too old')
+                    return;
+                }
                 req.body.status = 'pending';
                 game.polls.push(req.body)
             }
-            group[0].save(function (err) {
-                res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
-            })
+        })
+        group[0].save(function (err) {
+            res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
         });
     })
 }
@@ -67,9 +76,9 @@ function deletePoll(req, res) {
                     }
                 })
             }
-            group[0].save(function (err) {
-                res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
-            })
+        })
+        group[0].save(function (err) {
+            res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
         });
     })
 }
@@ -116,12 +125,11 @@ function vote(req, res) {
                             poll.status = 'pending'
                         }
                     }
-                    console.log(poll)
                 })
             }
-            group[0].save(function (err) {
-                res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
-            })
+        })
+        group[0].save(function (err) {
+            res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
         });
     })
 }
