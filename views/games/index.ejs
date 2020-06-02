@@ -25,6 +25,10 @@
                 <div class="cards">
                     <div class="col s12 m6">
                       <div class="card blue-grey darken-1">
+                        <form action="/<%=group.name%>/games?_method=DELETE" method="POST">
+                            <input type="hidden" name="gameName" value="<%=game.gameName%>">
+                            <button class='btn delete-btn' type="submit">X</button>
+                        </form>
                         <div class="card-content white-text">
                           <span class="card-title"><h5><small>Enter: </small> </h5><a id="game-link" href="/polls/<%=group.name%>/<%=game.gameName%>"><%=game.gameName%></a></span>
                         </div>
