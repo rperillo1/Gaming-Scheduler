@@ -161,7 +161,7 @@ input[type=datetime-local]:not(.browser-default){
   margin: 0px 70px;
 }
 
-#delete-btn {
+#delete-btn, .delete-btn {
   float: right;
 }
 
@@ -175,10 +175,39 @@ input[type=datetime-local]:not(.browser-default){
 
 .green {
   background-color: rgb(43, 198, 43);
-}
+} 
 
 .red {
   background-color: rgb(220, 51, 51);
+}
+
+#game-link, #group-link {
+  color: #239889;
+  background-color: rgba(255, 255, 255, 0.776);
+  /* font-family: 'Righteous', cursive; */
+  border: 1px solid #239889;
+  box-shadow: 2.5px 2.5px #239889;
+} 
+
+#game-link:hover, #group-link:hover {
+  background-color: #239889;
+  color: rgba(255, 255, 255, 0.776);
+  /* font-family: 'Righteous', cursive; */
+  border: 1px solid #239889;
+  box-shadow: 1px 1px #239889;
+}
+
+h5 {
+  margin-top: 0;
+}
+
+div.card-content.white-text {
+  padding: 5px;
+  padding-top: 9px;
+}
+
+#vote-input {
+  width: 10%;
 }
 
 @media only screen and (min-width: 768px) {

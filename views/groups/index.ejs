@@ -15,25 +15,36 @@
 </div>
 <div class='flex-container'>
     <ul>
-        <% groups.forEach(group => { %>
-        <li id='grp-btn'><a href="/<%=group.name%>/games"><%=group.name%></a></li>
-            <select name="members" id="">
-                    <option value="group members">group members:</option>
-                <%- group.members.map(member => 
-                    `<option value=''>${member.name}</option>`).join('') %>
-            </select>
 
-        <form action="/groups/addMember" method="POST">
-            <label for="">Add Members (by email):</label>
-            <br>
-            <input type="hidden" name="name" value="<%=group.name%>">
-            <input type="email" name="email" placeholder="j.smith@gmail.com"><button class='btn'type="submit" required>Add</button>
-        </form>
-        
-        <form action="/groups?_method=DELETE" method="POST">
-            <input type="hidden" name="name" value="<%=group.name%>">
-            <button class='btn delete-btn' type="submit">Delete Group</button>
-        </form>
+        <% groups.forEach(group => { %>
+        <div class="">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <form action="/groups?_method=DELETE" method="POST">
+                        <input type="hidden" name="name" value="<%=group.name%>">
+                        <button class='btn delete-btn' type="submit">X</button>
+                    </form>
+                    <div class="card-content white-text">
+                        <li id='grp-btn'><a id='group-link' href="/<%=group.name%>/games"><%=group.name%></a></li>
+                        <select name="members" id="">
+                            <option value="group members">group members:</option>
+                            <%- group.members.map(member => 
+                            `<option value=''>${member.name}</option>`).join('') %>
+                        </select>
+                    </div>
+                    <div class="card-action">
+                        <form action="/groups/addMember" method="POST">
+                            <label for="">Add Members (by email):</label>
+                            <br>
+                            <input type="hidden" name="name" value="<%=group.name%>">
+                            <input type="email" name="email" placeholder="j.smith@gmail.com"><button class='btn'
+                                type="submit" required>Add</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <% }) %>
     </ul>
