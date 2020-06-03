@@ -42,24 +42,13 @@ function index(req, res) {
 
 
 function addPoll(req, res) {
-    let utcDate;
-    let isoDate;
-    let tz;
     FriendGroup.find({ name: req.params.group }, function (err, group) {
         group[0].games.forEach(game => {
             if (game.gameName === req.params.gameName) {
-                utcDate = new Date(req.body.gameDate).toUTCString()
-                isoDate = new Date(req.body.gameDate).toISOString()
-                tz = new Date(req.body.gameDate).getTimezoneOffset()
-                console.log('utcDate', utcDate)
-                console.log('isoDate', isoDate)
-                console.log('timezone', tz)
-                if (new Date(req.body.gameDate).toISOString() < new Date().toISOString()) {
+                if (new Date(req.body.gameDate) < new Date()) {
                     return;
                 }
                 req.body.status = 'pending';
-                req.body.gameDate = utcDate;
-                console.log(req.body)
                 game.polls.push(req.body)
             }
         })
@@ -127,7 +116,7 @@ function vote(req, res) {
                         } else if (poll.voteNo.length > poll.voteYes.length) {
                             poll.status = 'finished'
                         } else {
-                            poll.status = 'pending'
+                            poll.status = 'finished'
                         }
                     }
                 })

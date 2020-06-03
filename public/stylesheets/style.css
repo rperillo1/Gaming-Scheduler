@@ -210,6 +210,10 @@ div.card-content.white-text {
   width: 10%;
 }
 
+label {
+  color: grey;
+}
+
 @media only screen and (min-width: 768px) {
   select {
     display: inline-block;

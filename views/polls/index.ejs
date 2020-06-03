@@ -36,8 +36,13 @@
                     <button class='btn delete-btn' id='delete-btn'type="submit">X</button>
                 </form>
                 <div class="card-content white-text">
-                    <span class="card-title">Option #<span><%=idx + 1%></span></span>
-                    <p><%=poll.gameDate%></p>
+                    <span class="card-title"><small>Option #<span><%=idx + 1%></span></small></span></span>
+                    <% let date = new Date(poll.gameDate) %>
+                    <% let day = date.getDay() %>
+                    <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
+                    <% date.setMinutes(date.getMinutes() - date.getTimezoneOffset()) %>
+                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.toISOString().slice(10,16)}` %>
+                    <p><%=dateString%></p>
                 </div>
                 
                 <div class="card-action">
@@ -73,8 +78,13 @@
                     <button class='btn delete-btn' id='delete-btn'type="submit">X</button>
                 </form>
                 <div <%- poll.status === 'completed' ? "class='green'" : " "%> class="card-content white-text">
-                    <span class="card-title">Completed #<span><%=idx + 1%></span></span>
-                    <p><%=poll.gameDate%></p>
+                    <span class="card-title"><small>Completed: </small></span></span>
+                    <% let date = new Date(poll.gameDate) %>
+                    <% let day = date.getDay() %>
+                    <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
+                    <% date.setMinutes(date.getMinutes() - date.getTimezoneOffset()) %>
+                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.toISOString().slice(10,16)}` %>
+                    <p><%=dateString%></p>
                 </div>
                 
                 <div class="card-action">
@@ -98,7 +108,7 @@
 </div>
 
 <div class='flex-container' id='poll-container'>
-    <h6>Finished Polls:</h6>
+    <h6>Voted Down:</h6>
 </div>
 <div class='flex-container' id='poll-container'>
     <% finishedPolls.forEach((poll, idx) => { %>
@@ -110,8 +120,13 @@
                     <button class='btn delete-btn' id='delete-btn'type="submit">X</button>
                 </form>
                 <div <%- poll.status === 'finished' ? "class='red'" : " "%> class="card-content white-text">
-                    <span class="card-title">Completed #<span><%=idx + 1%></span></span>
-                    <p><%=poll.gameDate%></p>
+                    <span class="card-title"><small>Completed:</small></span></span>
+                    <% let date = new Date(poll.gameDate) %>
+                    <% let day = date.getDay() %>
+                    <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
+                    <% date.setMinutes(date.getMinutes() - date.getTimezoneOffset()) %>
+                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.toISOString().slice(10,16)}` %>
+                    <p><%=dateString%></p>
                 </div>
                 
                 <div class="card-action">

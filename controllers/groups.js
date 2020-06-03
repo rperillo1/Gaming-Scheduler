@@ -39,6 +39,7 @@ function addMember(req, res) {
         User.find({ email: req.body.email }, function (err, user) {
             if (user[0] === undefined) {
                 console.log('send email to user')
+                return;
             }
             groups.forEach(group => {
                 if (group.name === req.body.name) {
