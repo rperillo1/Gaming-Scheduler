@@ -43,7 +43,7 @@
                     <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
                     <%= date.toISOString() %>
                     <%= date %>
-                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.getHours()}:${date.getMinutes()}` %>
+                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.getHours()+(date.getTimezoneOffset()/60)}:${date.getMinutes()}` %>
                     <p><%=dateString%></p>
                 </div>
 
