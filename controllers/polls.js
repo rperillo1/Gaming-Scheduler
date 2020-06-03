@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const FriendGroup = require('../models/friendgroup')
+const FriendGroup = require('../models/FriendGroup')
 
 
 module.exports = {
