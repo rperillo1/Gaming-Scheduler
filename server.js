@@ -6,6 +6,8 @@ const session = require('express-session');
 const passport = require('passport');
 var logger = require('morgan');
 const methodOverride = require('method-override');
+var moment = require('moment');
+moment().format();
 
 require('dotenv').config();
 
@@ -31,6 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+// app.use(moment());
 
 app.use(session({
   secret: 'SEIProject2',

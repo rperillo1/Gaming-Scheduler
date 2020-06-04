@@ -41,9 +41,8 @@
                     <% let date = new Date(poll.gameDate) %>
                     <% let day = date.getDay() %>
                     <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
-                    <%= date.toISOString() %>
-                    <%= date %>
-                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.getHours()+(date.getTimezoneOffset()/60)}:${date.getMinutes()}` %>
+                    <%= date.toString().substring(0, 21) %>
+                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.getHours()+(date.getTimezoneOffset()/60)}:${date.getMinutes().toString().padStart(2, '0')}` %>
                     <p><%=dateString%></p>
                 </div>
 
