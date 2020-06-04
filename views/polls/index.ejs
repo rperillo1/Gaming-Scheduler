@@ -4,10 +4,13 @@
     <a href="/<%=group.name%>/games">Back to Games</a>
 </div>
 
-<div class='flex-container'>
+<div class='flex-container' id='h4-container'>
     <h4><%=gameName%></h4>
 </div>
-
+<div class='flex-container'>
+    <p>(<%=group.name%>)</p>
+</div>
+<br>
 <div class="flex-container">
     <form action="/polls/<%=group.name%>/<%=gameName%>" method="POST">
         <label for="gameDate">New Poll:</label>
@@ -31,7 +34,6 @@
         <button class='btn' type="submit">Submit</button>
     </form> -->
 </div>
-<br>
 <div class='flex-container'>
     <h6>Pending Polls:</h6>
 </div>

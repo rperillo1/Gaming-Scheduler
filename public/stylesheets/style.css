@@ -21,7 +21,6 @@ body {
   font-family: 'Cabin Sketch', cursive;
 }
 
-
 nav {
   background-color: rgb(167, 156, 156);
   font-family: 'Righteous', cursive;
@@ -88,18 +87,17 @@ img {
 
 h4 {
   font-size: 6vmin;
-  padding-top: 3.5vmin;
+  padding-top: 2.5vmin;
   text-shadow: 2px 2px #c9b5b5;
+  margin-bottom: 0px;
 }
-
 
 select {
   display: inline-block;
-  height: 7.5vmin;
-  width: 80%;
+  height: 6vmin;
+  width: 100%;
   padding: 0;
 }
-
 
 input[type=email]:not(.browser-default) {
   width: 60%;
@@ -112,7 +110,6 @@ input[type=email]:not(.browser-default) {
 input[type=text]:not(.browser-default) {
   height: 1.5rem;
 }
-
 
 .btn {
   font-size: 10px;
@@ -153,7 +150,6 @@ input[type=text]:not(.browser-default) {
 .card .card-content {
   padding: 10px;
 } 
-
 
 #poll-container, #game-container {
   display: block;
@@ -240,6 +236,9 @@ div.green, div.red {
 #timezone {
   width: 20%;
 }
+
+
+
 
 @media only screen and (min-width: 768px) {
   select {

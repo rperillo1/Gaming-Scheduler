@@ -3,6 +3,7 @@
 <div class="flex-container">
     <h4>Friend Groups!</h3>
 </div>
+<br>
 <div class="flex-container">
     <form action="/groups" method="POST">
         <label for="name">Create New Group:</label>
@@ -10,14 +11,14 @@
         <button class='btn' type="submit">Submit</button>
     </form>
 </div>
+<br>
 <div class='flex-container'>
     <h6>Your Groups:</h6>
 </div>
 <div class='flex-container'>
     <ul>
-
         <% groups.forEach(group => { %>
-        <div class="">
+        <div class="group-card">
             <div class="col s12 m6">
                 <div class="card blue-grey darken-1">
                     <form action="/groups?_method=DELETE" method="POST">
