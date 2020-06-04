@@ -50,10 +50,7 @@ function addPoll(req, res) {
                 if (new Date(req.body.gameDate) < new Date()) {
                     return;
                 } 
-                isoDate = new Date(req.body.gameDate).toISOString()
-                console.log(isoDate)
                 req.body.status = 'pending';
-                req.body.gameDate = isoDate;
                 game.polls.push(req.body)
             }
         })
