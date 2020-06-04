@@ -47,11 +47,7 @@
                 <div class="card-content white-text">
                     <span class="card-title"><small>Option #<span><%=idx + 1%></span></small></span></span>
                     <% let date = new Date(poll.gameDate) %>
-                    <% let day = date.getDay() %>
-                    <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
                     <span class='dates'><%= date.toISOString() %></span>
-                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}` %>
-                    <p><%=dateString%></p>
                 </div>
 
                 <div class="card-action">
@@ -90,12 +86,9 @@
                 </form>
                 <div <%- poll.status === 'completed' ? "class='green'" : " "%> class="card-content white-text">
                     <span class="card-title"><small>Completed: </small></span></span>
+                    <br>
                     <% let date = new Date(poll.gameDate) %>
-                    <% let day = date.getDay() %>
-                    <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
-                    <% date.setMinutes(date.getMinutes() - date.getTimezoneOffset()) %>
-                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.toISOString().slice(10,16)}` %>
-                    <p><%=dateString%></p>
+                    <span class='dates'><%= date.toISOString() %></span>
                 </div>
 
                 <div class="card-action">
@@ -134,12 +127,9 @@
                 </form>
                 <div <%- poll.status === 'finished' ? "class='red'" : " "%> class="card-content white-text">
                     <span class="card-title"><small>Completed:</small></span></span>
+                    <br>
                     <% let date = new Date(poll.gameDate) %>
-                    <% let day = date.getDay() %>
-                    <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
-                    <% date.setMinutes(date.getMinutes() - date.getTimezoneOffset()) %>
-                    <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.toISOString().slice(10,16)}` %>
-                    <p><%=dateString%></p>
+                    <span class='dates'><%= date.toISOString() %></span>
                 </div>
 
                 <div class="card-action">
