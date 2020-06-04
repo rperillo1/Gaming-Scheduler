@@ -6,8 +6,8 @@ const session = require('express-session');
 const passport = require('passport');
 var logger = require('morgan');
 const methodOverride = require('method-override');
-var moment = require('moment');
-moment().format();
+// var moment = require('moment');
+// moment().format();
 
 require('dotenv').config();
 
