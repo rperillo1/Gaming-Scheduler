@@ -215,7 +215,7 @@ label {
 
 input[type=datetime-local]:not(.browser-default){
   height: 1.5rem;
-  width: 60%;
+  width: 70%;
   font-size: 12px;
 }
 
@@ -233,6 +233,10 @@ div.green, div.red {
 
 .card label {
   color: white;
+}
+
+#timezone {
+  width: 20%;
 }
 
 @media only screen and (min-width: 768px) {

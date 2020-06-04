@@ -12,16 +12,24 @@
     <form action="/polls/<%=group.name%>/<%=gameName%>" method="POST">
         <label for="gameDate">New Poll:</label>
         <input id="poll-input" type="datetime-local" name="gameDate" value="">
+        <br>
+        <label for="timezone">Your Timezone:</label>
+        <select name="timezone" id="timezone">
+            <option value="ET">ET</option>
+            <option value="CT">CT</option>
+            <option value="MT">MT</option>
+            <option value="PT">PT</option>
+        </select>
         <button class='btn' type="submit">Submit</button>
     </form>
 </div>
 <br>
-<div class='flex-container' id='poll-container'>
+<!-- <div class='flex-container' id='poll-container'>
     <form action="">
         <label for="voteCount">Votes Needed to Complete Poll:</label>
         <input id="vote-input" type="number" name="voteCount">
         <button class='btn' type="submit">Submit</button>
-    </form>
+    </form> -->
 </div>
 <br>
 <div class='flex-container'>
@@ -41,7 +49,6 @@
                     <% let date = new Date(poll.gameDate) %>
                     <% let day = date.getDay() %>
                     <% const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] %>
-
                     <span class='dates'><%= date.toISOString() %></span>
                     <% const dateString = `${week[day]}, ${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear().toString().substring(2)} ${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}` %>
                     <p><%=dateString%></p>

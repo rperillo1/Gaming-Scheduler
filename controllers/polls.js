@@ -51,7 +51,18 @@ function addPoll(req, res) {
                 if (date < new Date()) {
                     return;
                 }
-                date.setHours(date.getHours()+6)
+                if (req.body.timezone === 'ET') {
+                    date.setHours(date.getHours()+4)
+                }
+                if (req.body.timezone === 'CT') {
+                    date.setHours(date.getHours()+5)
+                }
+                if (req.body.timezone === 'MT') {
+                    date.setHours(date.getHours()+6)
+                }
+                if (req.body.timezone === 'PT') {
+                    date.setHours(date.getHours()+7)
+                }
                 req.body.status = 'pending';
                 req.body.gameDate = date;
                 game.polls.push(req.body)
