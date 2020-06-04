@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const FriendGroup = require('../models/FriendGroup')
+const FriendGroup = require('../models/FriendGroup');
 
 
 module.exports = {
@@ -25,9 +25,9 @@ function index(req, res) {
                     }
                     else if (poll.status === 'finished') {
                         finishedPolls.push(poll);
-                    }
-                })
-            }
+                    };
+                });
+            };
         });
         res.render(`polls/index`, {
             user: req.user,
@@ -38,7 +38,7 @@ function index(req, res) {
             finishedPolls: finishedPolls
         });
     });
-}
+};
 
 
 function addPoll(req, res) {
@@ -65,13 +65,13 @@ function addPoll(req, res) {
                 req.body.status = 'pending';
                 req.body.gameDate = date;
                 game.polls.push(req.body)
-            }
-        })
+            };
+        });
         group[0].save(function (err) {
             res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
         });
-    })
-}
+    });
+};
 
 function deletePoll(req, res) {
     let idx;
@@ -82,15 +82,15 @@ function deletePoll(req, res) {
                     if (poll._id.equals(req.body.id)) {
                         idx = game.polls.indexOf(poll)
                         game.polls.splice(idx, 1)
-                    }
-                })
-            }
-        })
+                    };
+                });
+            };
+        });
         group[0].save(function (err) {
             res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
         });
-    })
-}
+    });
+};
 
 
 function vote(req, res) {
@@ -122,9 +122,9 @@ function vote(req, res) {
                                 console.log('No - already in here')
                             } else {
                                 poll.voteNo.push(req.user._id)
-                            }
-                        }
-                    }
+                            };
+                        };
+                    };
                     if ((poll.voteYes.length + poll.voteNo.length) === group[0].members.length) {
                         if (poll.voteYes.length > poll.voteNo.length) {
                             poll.status = 'completed'
@@ -132,13 +132,13 @@ function vote(req, res) {
                             poll.status = 'finished'
                         } else {
                             poll.status = 'finished'
-                        }
-                    }
-                })
-            }
-        })
+                        };
+                    };
+                });
+            };
+        });
         group[0].save(function (err) {
             res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
         });
-    })
-}
+    });
+};

@@ -22,4 +22,4 @@ function index(req, res, next) {
         sortKey
       });
     });
-}
+};

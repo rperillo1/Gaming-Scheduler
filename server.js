@@ -6,17 +6,16 @@ const session = require('express-session');
 const passport = require('passport');
 var logger = require('morgan');
 const methodOverride = require('method-override');
-// var moment = require('moment');
-// moment().format();
+
 
 require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var homeRouter = require('./routes/home');
-var groupsRouter = require('./routes/groups');
-var gamesRouter = require('./routes/games');
-var pollsRouter = require('./routes/polls');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const homeRouter = require('./routes/home');
+const groupsRouter = require('./routes/groups');
+const gamesRouter = require('./routes/games');
+const pollsRouter = require('./routes/polls');
 
 var app = express();
 

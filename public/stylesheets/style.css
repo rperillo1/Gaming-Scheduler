@@ -186,6 +186,7 @@ input[type=text]:not(.browser-default) {
   box-shadow: 2.5px 2.5px #239889;
 } 
 
+
 #game-link:hover, #group-link:hover {
   background-color: #239889;
   color: rgba(255, 255, 255, 0.776);

@@ -19,7 +19,7 @@ function index(req, res) {
             });
         });
     });
-}
+};
 
 function createGroup(req, res) {
     User.findById(req.user, function (err, user) {
@@ -30,7 +30,7 @@ function createGroup(req, res) {
             res.redirect('/groups');
         });
     });
-}
+};
 
 
 function addMember(req, res) {
@@ -40,15 +40,15 @@ function addMember(req, res) {
             if (user[0] === undefined) {
                 console.log('send email to user')
                 return;
-            }
+            };
             groups.forEach(group => {
                 if (group.name === req.body.name) {
                     group.members.forEach(member => {
                         if (member.equals(user[0]._id)) {
                             idx = group.members.indexOf(member)
                             group.members.splice(idx, 1)
-                        }
-                    })
+                        };
+                    });
                     group.members.push(user[0]._id)
                     group.save(function (err) {
                         res.redirect('/groups');
@@ -57,7 +57,7 @@ function addMember(req, res) {
             });
         });
     });
-}
+};
 
 function deleteGroup(req, res) {
     FriendGroup.find({ members: req.user }, function (err, groups) {
@@ -66,9 +66,9 @@ function deleteGroup(req, res) {
                 if (group.name === req.body.name) {
                     FriendGroup.findByIdAndRemove(group._id, function(err, group) {
                         res.redirect('/groups')
-                    })
-                }
-            })
+                    });
+                };
+            });
         });
     });
-}
+};
