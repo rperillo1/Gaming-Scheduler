@@ -43,14 +43,17 @@ function index(req, res) {
 
 
 function addPoll(req, res) {
-    let isoDate;
+    let date;
     FriendGroup.find({ name: req.params.group }, function (err, group) {
         group[0].games.forEach(game => {
+            date = new Date(req.body.gameDate)
             if (game.gameName === req.params.gameName) {
-                if (new Date(req.body.gameDate) < new Date()) {
+                if (date < new Date()) {
                     return;
-                } 
+                }
+                date.setHours(date.getHours()+6)
                 req.body.status = 'pending';
+                req.body.gameDate = date;
                 game.polls.push(req.body)
             }
         })
