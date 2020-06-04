@@ -173,10 +173,12 @@ input[type=text]:not(.browser-default) {
 }
 
 .green {
+  padding: 8px;
   background-color: rgb(43, 198, 43);
 } 
 
 .red {
+  padding: 8px;
   background-color: rgb(220, 51, 51);
 }
 
@@ -201,8 +203,8 @@ h5 {
 }
 
 div.card-content.white-text {
-  padding: 5px;
-  padding-top: 9px;
+  padding: 0 23px;
+  padding-top: 7px;
 }
 
 #vote-input {
