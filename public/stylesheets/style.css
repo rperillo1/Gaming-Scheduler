@@ -151,7 +151,7 @@ input[type=text]:not(.browser-default) {
   padding: 10px;
 } 
 
-#poll-container, #game-container {
+#poll-container, #game-container, #group-container {
   display: block;
   margin: 0px 70px;
 }
@@ -256,13 +256,12 @@ div.green, div.red {
     margin-right: 6px;
   }
 
-
   .delete-btn {
     background-color: rgb(213, 100, 100);
     margin-bottom: 4vmin;
   }
 
-  #poll-container, #game-container {
+  #poll-container, #game-container, #group-container {
     display: flex;
   }
 
