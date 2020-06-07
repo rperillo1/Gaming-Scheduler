@@ -158,6 +158,7 @@ input[type=text]:not(.browser-default) {
 
 #delete-btn, .delete-btn {
   float: right;
+  border-radius: 0;
 }
 
 #vote-form {
