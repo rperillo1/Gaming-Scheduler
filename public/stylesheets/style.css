@@ -238,7 +238,14 @@ div.green, div.red {
   width: 20%;
 }
 
+.calendar-button {
+  background-color: rgb(62, 62, 222);
+  padding: 8px;
+}
 
+.calendar-button:hover {
+  background-color: blue;
+}
 
 
 @media only screen and (min-width: 768px) {

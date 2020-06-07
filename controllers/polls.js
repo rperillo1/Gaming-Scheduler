@@ -1,11 +1,6 @@
 const User = require('../models/User');
 const FriendGroup = require('../models/FriendGroup');
 
-const fs = require('fs');
-const readline = require('readline');
-const { google } = require('googleapis');
-
-
 
 module.exports = {
     index,
@@ -143,52 +138,12 @@ function vote(req, res) {
                     });
                 };
             });
-            const oAuth2Client = new google.auth.OAuth2(
-                process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_SECRET, "urn:ietf:wg:oauth:2.0:oob");
-            oAuth2Client.setCredentials({ access_token: user.accessToken });
-            listEvents(oAuth2Client)
             group[0].save(function (err) {
                 res.redirect(`/polls/${req.params.group}/${req.params.gameName}`)
             });
         });
     })
 };
-
-
-
-function listEvents(auth) {
-    const calendar = google.calendar({ version: 'v3', auth });
-    // calendar.events.list({
-    //     calendarId: 'primary',
-    //     timeMin: (new Date()).toISOString(),
-    //     maxResults: 10,
-    //     singleEvents: true,
-    //     orderBy: 'startTime',
-    // }, (err, res) => {
-    //     if (err) return console.log('The API returned an error: ' + err);
-    //     const events = res.data.items;
-    //     if (events.length) {
-    //         console.log('Upcoming 10 events:');
-    //         events.map((event, i) => {
-    //             const start = event.start.dateTime || event.start.date;
-    //             console.log(`${start} - ${event.summary}`);
-    //         });
-    //     } else {
-    //         console.log('No upcoming events found.');
-    //     }
-    // });
-    calendar.events.insert({
-        auth: auth,
-        calendarId: 'primary',
-        resource: event,
-      }, function(err, event) {
-        if (err) {
-          console.log('There was an error contacting the Calendar service: ' + err);
-          return;
-        }
-        console.log('Event created: %s', event.htmlLink);
-      });
-}
 
 
 var event = {

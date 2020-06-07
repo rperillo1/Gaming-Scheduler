@@ -16,6 +16,7 @@ const homeRouter = require('./routes/home');
 const groupsRouter = require('./routes/groups');
 const gamesRouter = require('./routes/games');
 const pollsRouter = require('./routes/polls');
+const calendarRouter = require('./routes/calendar');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/', gamesRouter);
+app.use('/', calendarRouter);
 app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/groups', groupsRouter);

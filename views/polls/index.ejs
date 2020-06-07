@@ -27,12 +27,6 @@
     </form>
 </div>
 <br>
-<!-- <div class='flex-container' id='poll-container'>
-    <form action="">
-        <label for="voteCount">Votes Needed to Complete Poll:</label>
-        <input id="vote-input" type="number" name="voteCount">
-        <button class='btn' type="submit">Submit</button>
-    </form> -->
 </div>
 <div class='flex-container'>
     <h6>Pending Polls:</h6>
@@ -106,6 +100,13 @@
                             <input type="hidden" name="vote" value="voteNo">
                             <button class="btn vote-button" type='submit'>No:
                                 <span><%=poll.voteNo.length%></span></button>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="flex-container">
+                        <form action="/<%=group.name%>/<%=gameName%>/calendar" method="POST">
+                            <input type="hidden" name="pollDate" value='<%=date%>'>
+                            <button class='btn calendar-button' type="submit">Push to Google Calendar</button>
                         </form>
                     </div>
                 </div>
