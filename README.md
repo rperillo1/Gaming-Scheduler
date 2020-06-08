@@ -14,7 +14,7 @@
 
 Technologies:
 ------
-Express, Node, Mongoose, MongoDB, EJS, Heroku, HTML, CSS, Materialize
+Express, Node, Mongoose, MongoDB, EJS, Heroku, HTML, CSS, Materialize, Google Calendar API
 
 <br>
 
