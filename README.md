@@ -14,7 +14,7 @@
 
 Technologies:
 ------
-ExpressJS, NodeJS, Mongoose, MongoDB, EJS, Heroku, HTML, CSS (Grid/Flexbox), Materialize
+Express, Node, Mongoose, MongoDB, EJS, Heroku, HTML, CSS, Materialize
 
 <br>
 
