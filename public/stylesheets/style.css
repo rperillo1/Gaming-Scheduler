@@ -167,6 +167,7 @@ input[type=text]:not(.browser-default) {
 
 .vote-button {
   padding: 10px;
+  font-size: 12px;
 }
 
 .green {
@@ -242,6 +243,7 @@ div.green, div.red {
 .calendar-button {
   background-color: rgb(62, 62, 222);
   padding: 8px;
+  font-size: 12px;
 }
 
 .calendar-button:hover {
