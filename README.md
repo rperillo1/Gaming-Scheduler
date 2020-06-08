@@ -26,3 +26,4 @@ Link: [Visit Game Time!](https://game-time-scheduler.herokuapp.com/)
 ### Future Features:
 1. Use NodeMailer to send an email to a potential user that has not already logged into the app if invited by a user.
 2. Allow users to specify how many players are needed for a poll to be completed.
+3. When user goes to delete a group, game or poll - ask them if they are sure via pop-up card.
