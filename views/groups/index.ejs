@@ -12,8 +12,13 @@
     </form>
 </div>
 <br>
+
 <div class='flex-container'>
+    <% if (groups.length) { %>
     <h6>Your Groups:</h6>
+    <% } else { %>
+    <h6>Create New Group!</h6>
+    <% } %>
 </div>
 <div class='flex-container' id='group-container'>
     <ul>

@@ -29,7 +29,11 @@
 <br>
 </div>
 <div class='flex-container'>
+    <% if (pendingPolls.length) { %>
     <h6>Pending Polls:</h6>
+    <% } else { %>
+    <h6>Create New Poll!</h6>
+    <% } %>
 </div>
 <div class='flex-container' id='poll-container'>
     <% pendingPolls.forEach((poll, idx) => { %>
@@ -69,8 +73,11 @@
 </div>
 
 <div class='flex-container' id='poll-container'>
+    <% if (completedPolls.length) { %>
     <h6>Completed Polls:</h6>
+    <% } %>
 </div>
+
 <div class='flex-container' id='poll-container'>
     <% completedPolls.forEach((poll, idx) => { %>
     <div class="cards">
@@ -117,7 +124,9 @@
 </div>
 
 <div class='flex-container' id='poll-container'>
-    <h6>Voted Down:</h6>
+    <% if (finishedPolls.length) { %>
+    <h6>Polls Voted Down:</h6>
+    <% } %>
 </div>
 <div class='flex-container' id='poll-container'>
     <% finishedPolls.forEach((poll, idx) => { %>

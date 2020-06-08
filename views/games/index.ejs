@@ -17,7 +17,11 @@
 </div>
 <br>
 <div class='flex-container'>
-    <h6>Games below:</h6>
+    <% if (games.length) { %>
+    <h6>Your Games:</h6>
+    <% } else { %>
+    <h6>Create New Game!</h6>
+    <% } %>
 </div>
 <div class='flex-container' id="game-container">
     <ul>
