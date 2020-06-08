@@ -7,9 +7,9 @@
 
 ![Wireframe-1](https://i.imgur.com/hpRqtao.png)
 
-![Wireframe-1](https://i.imgur.com/VEz8Yd3.png)
+![Wireframe-1](https://i.imgur.com/T5S5q1j.png)
 
-![Wireframe-1](https://i.imgur.com/mY0xP27.png)
+![Wireframe-1](https://i.imgur.com/EPrHJHH.png)
 
 
 Technologies:
@@ -21,10 +21,8 @@ ExpressJS, NodeJS, Mongoose, MongoDB, EJS, Heroku, HTML, CSS (Grid/Flexbox), Mat
 Link: [Visit Game Time!](https://game-time-scheduler.herokuapp.com/)
 
 
-
 <br>
 
 ### Future Features:
-1. Use Google Cal API to allow user to push completed polls to group members calendars.
-2. Use NodeMailer to send an email to a potential user that has not already logged into the app if invited by a user.
-3. Allow users to specify how many players are needed for a poll to be completed.
+1. Use NodeMailer to send an email to a potential user that has not already logged into the app if invited by a user.
+2. Allow users to specify how many players are needed for a poll to be completed.

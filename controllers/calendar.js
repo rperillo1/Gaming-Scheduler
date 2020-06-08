@@ -24,8 +24,8 @@ function pushEvents(auth, req) {
     let startDateString;
     let endDateString;
     let pollDate = new Date(req.body.pollDate)
-    startDateString = `${pollDate.getFullYear()}-${(pollDate.getMonth() + 1).toString().padStart(2, '0')}-${pollDate.getDate()}T${pollDate.getHours().toString().padStart(2, '0')}:${pollDate.getMinutes().toString().padStart(2, '0')}:00-01:00`
-    endDateString = `${pollDate.getFullYear()}-${(pollDate.getMonth() + 1).toString().padStart(2, '0')}-${pollDate.getDate()}T${(pollDate.getHours() + 1).toString().padStart(2, '0')}:${pollDate.getMinutes().toString().padStart(2, '0')}:00-01:00`
+    startDateString = `${pollDate.getFullYear()}-${(pollDate.getMonth() + 1).toString().padStart(2, '0')}-${pollDate.getDate()}T${pollDate.getHours().toString().padStart(2, '0')}:${pollDate.getMinutes().toString().padStart(2, '0')}:00-00:00`
+    endDateString = `${pollDate.getFullYear()}-${(pollDate.getMonth() + 1).toString().padStart(2, '0')}-${pollDate.getDate()}T${(pollDate.getHours() + 1).toString().padStart(2, '0')}:${pollDate.getMinutes().toString().padStart(2, '0')}:00-00:00`
     FriendGroup.find({ name: req.params.group }).populate('members').exec(function (err, group) {
         group[0].members.forEach(member => {
             attendeesArray.push({ 'email': member.email })
